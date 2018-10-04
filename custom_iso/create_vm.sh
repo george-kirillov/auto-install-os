@@ -4,13 +4,16 @@ vm=$1
 
 virt-install \
 --name $vm \
---ram 2048 \
+--ram 4096 \
 --boot uefi \
 --disk path=/var/lib/libvirt/images/$1.qcow2,bus=virtio,size=15 \
--c /home/george/git-repo/install_os_ilo/custom_iso/ubuntu-16.04.4-server-amd64_custome.iso \
---vcpus 2 \
+-c /home/george/git-repo/private/auto-install-os/custom_iso/ubuntu-18.04.1-live-server-amd64.iso \
+--initrd-inject=/home/george/git-repo/private/auto-install-os/custom_iso/preseed.cfg \
+--vcpus 4 \
 --os-type linux \
 --os-variant generic \
 --accelerate \
---network network=dead_net,model=virtio \
+--network network=default,model=virtio \
 --connect=qemu:///system --vnc --noautoconsole -v
+# для того что бы работала опция --initrd-inject путь к iso надо указывать через опцию -l
+# в случае же с установкой без --initrd-inject (когда preseed.cfg в составе iso) используй -с
