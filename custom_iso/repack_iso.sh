@@ -1,5 +1,5 @@
-### pack.sh — скрипт для упаковки образа
-#!/bin/bash
+#!/usr/bin/env bash
+# This script need for repack UEFI Bootable ISO.
 
 IMAGE=$1
 BUILD=iso
@@ -9,7 +9,6 @@ cp preseed.cfg $BUILD/preseed/preseed.seed
 cp txt.cfg $BUILD/isolinux/
 cp lang $BUILD/isolinux/
 # Вычисляем контрольные суммы
-
 rm $BUILD/md5sum.txt
 (cd $BUILD/ && find . -type f -print0 | xargs -0 md5sum | grep -v "boot.cat" | grep -v "md5sum.txt" > md5sum.txt)
 
