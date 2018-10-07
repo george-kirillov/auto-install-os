@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 # This script need for repack UEFI Bootable ISO.
 
+# Define variables
 IMAGE=$1
 BUILD=iso
 
 # модифицируем стандартный iso кастомными файлами
-cp preseed.cfg $BUILD/preseed/preseed.seed
-cp txt.cfg $BUILD/isolinux/
-cp lang $BUILD/isolinux/
+cp custom_preseed.cfg $BUILD/preseed/preseed.seed
+cp custom_grub.cfg $BUILD/boot/grub/grub.cfg
+cp custom_lang $BUILD/isolinux/lang
 # Вычисляем контрольные суммы
 rm $BUILD/md5sum.txt
 (cd $BUILD/ && find . -type f -print0 | xargs -0 md5sum | grep -v "boot.cat" | grep -v "md5sum.txt" > md5sum.txt)
