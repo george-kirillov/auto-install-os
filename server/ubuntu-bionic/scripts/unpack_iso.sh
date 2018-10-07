@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Define variables
-BUILD=iso
+BUILD=../iso
 OSVERSION=18.04.1
 IMAGE=ubuntu-$OSVERSION-server-amd64.iso
 TMPDIR="$(mktemp -d)"
