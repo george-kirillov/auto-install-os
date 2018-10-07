@@ -2,12 +2,12 @@
 # This script need for repack UEFI Bootable ISO.
 
 # Define variables
-IMAGE=$1
+IMAGE=../images/custom/ubuntu-18.04.1-custom-server-amd64.iso
 BUILD=../iso
 
 # модифицируем стандартный iso кастомными файлами
-cp custom_files/custom_preseed.cfg $BUILD/preseed/preseed.seed
-cp custom_files/custom_grub.cfg $BUILD/boot/grub/grub.cfg
+cp ../custom_files/custom_preseed.cfg $BUILD/preseed/preseed.seed
+cp ../custom_files/custom_grub.cfg $BUILD/boot/grub/grub.cfg
 # Вычисляем контрольные суммы
 rm $BUILD/md5sum.txt
 (cd $BUILD/ && find . -type f -print0 | xargs -0 md5sum | grep -v "boot.cat" | grep -v "md5sum.txt" > md5sum.txt)
@@ -23,5 +23,5 @@ xorriso -as mkisofs \
   -e boot/grub/efi.img \
   -no-emul-boot \
   -isohybrid-gpt-basdat \
-  -o $1 \
+  -o $IMAGE \
   $BUILD

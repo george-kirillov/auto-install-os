@@ -7,7 +7,7 @@ virt-install \
 --ram 4096 \
 --boot uefi \
 --disk path=/var/lib/libvirt/images/$1.qcow2,bus=virtio,size=15 \
--c /home/george/git-repo/private/auto-install-os/custom_iso/ubuntu-18.04.1-custom-server-amd64.iso \
+-c ../images/custom/ubuntu-18.04.1-custom-server-amd64.iso \
 --vcpus 4 \
 --os-type linux \
 --os-variant generic \
