@@ -6,9 +6,9 @@ virt-install \
 --name $vm \
 --ram 4096 \
 --boot uefi \
---disk path=/var/lib/libvirt/images/$1.qcow2,bus=virtio,size=15 \
--c ../images/custom/ubuntu-18.04.1-desktop-amd64.iso \
---vcpus 4 \
+--disk path=/var/lib/libvirt/images/$1.qcow2,bus=virtio,size=30 \
+-c ../images/custom/xubuntu-18.04.2-desktop-amd64-custom.iso \
+--vcpus 2 \
 --os-type linux \
 --os-variant generic \
 --accelerate \

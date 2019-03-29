@@ -2,7 +2,7 @@
 
 vm=$1
 # останавливаем ВМ и удаляем её
-for i in destroy undefine
+for i in destroy "undefine --nvram"
 do
 virsh -c qemu:///system $i $vm
 done

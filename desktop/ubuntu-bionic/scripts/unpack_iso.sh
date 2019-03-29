@@ -2,8 +2,8 @@
 
 # Define variables
 BUILD=../iso
-OSVERSION=18.04.1
-IMAGE=../images/origin/ubuntu-$OSVERSION-desktop-amd64.iso
+OSVERSION=18.04.2
+IMAGE=../images/origin/xubuntu-$OSVERSION-desktop-amd64.iso
 TMPDIR="$(mktemp -d)"
 
 # create clean work space
@@ -12,7 +12,7 @@ mkdir $BUILD/
 
 # Check availability local iso image
 if ! [[ -e "$IMAGE" ]]; then
-wget -P ../images/origin/ http://releases.ubuntu.com/18.04.1/ubuntu-18.04.1-desktop-amd64.iso
+wget -P ../images/origin/ https://mirror.yandex.ru/ubuntu-cdimage/xubuntu/releases/18.04/release/xubuntu-18.04.2-desktop-amd64.iso
 fi
 
 # Mount image & copy files
