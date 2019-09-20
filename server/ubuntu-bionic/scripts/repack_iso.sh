@@ -7,6 +7,10 @@ IMAGE_DIR=../images/custom
 IMAGE=ubuntu-$OSVERSION-server-amd64-custom.iso
 BUILD=../iso
 
+if [[  "$1" = "legacy" ]]; then
+  sed -i -E 's/d-i\spartman-auto\/method.+$/d-i partman-auto\/method string regular/g' ../custom_files/custom_preseed.cfg
+fi
+
 # создаём каталог для postinstall.sh
 if [ ! -d "$BUILD/extra" ]; then
   mkdir $BUILD/extra
