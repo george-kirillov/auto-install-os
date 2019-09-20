@@ -1,16 +1,29 @@
 #!/bin/bash
 
 vm=$1
+vhdsize=15
+OSVERSION=18.04.3
+
+echo "What mode to use?"
+read -p "(uefi/bios): " answer
+if [[ $answer == "uefi" ]]; then
+  mode="uefi"
+elif [[ "$answer" == "bios" ]]; then
+  mode="hd,cdrom,menu=on"
+else
+  echo "No mode selected! nothing to do!"
+  exit 0
+fi
 
 virt-install \
 --name $vm \
---ram 4096 \
---boot uefi \
---disk path=/var/lib/libvirt/images/$1.qcow2,bus=virtio,size=15 \
--c ../images/custom/ubuntu-18.04.1-custom-server-amd64.iso \
---vcpus 4 \
+--ram 2048 \
+--boot $mode \
+--disk path=$HOME/$1.qcow2,bus=virtio,size=$vhdsize \
+-c ../images/custom/ubuntu-$OSVERSION-server-amd64-custom.iso \
+--vcpus 2 \
 --os-type linux \
---os-variant generic \
+--os-variant ubuntu18.04 \
 --accelerate \
 --network network=default,model=virtio \
 --connect=qemu:///system --vnc --noautoconsole -v
