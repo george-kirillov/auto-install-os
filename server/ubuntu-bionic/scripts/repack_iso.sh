@@ -19,6 +19,8 @@ fi
 # модифицируем стандартный iso кастомными файлами
 cp ../custom_files/custom_preseed.cfg $BUILD/preseed/preseed.seed
 cp ../custom_files/custom_grub.cfg $BUILD/boot/grub/grub.cfg
+cp ../custom_files/lang $BUILD/isolinux/lang
+cp ../custom_files/isolinux.cfg $BUILD/isolinux/isolinux.cfg
 cp ../custom_files/txt.cfg $BUILD/isolinux/txt.cfg
 cp -r ../custom_files/extra/* $BUILD/extra/
 
