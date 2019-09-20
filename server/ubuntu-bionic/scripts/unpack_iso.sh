@@ -2,7 +2,7 @@
 
 # Define variables
 BUILD=../iso
-OSVERSION=18.04.1
+OSVERSION=18.04.3
 IMAGE=../images/origin/ubuntu-$OSVERSION-server-amd64.iso
 TMPDIR="$(mktemp -d)"
 
