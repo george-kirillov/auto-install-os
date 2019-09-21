@@ -1,9 +1,6 @@
 #!/bin/bash
 user=service_user
 
-# install Packages
-apt-get update && apt-get install -y --force-yes openssh-server
-
 # create dir for keys & ops keys
 mkdir /home/$user/.ssh/ && \
 cat <<EOF > /home/$user/.ssh/authorized_keys
