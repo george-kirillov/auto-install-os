@@ -1,3 +1,3 @@
 
 support uefi kvm guest
-sudo apt install virt-manager libvirt-daemon ovmf
+sudo apt install virt-manager libvirt-daemon ovmf xorriso
