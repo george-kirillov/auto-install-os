@@ -1,3 +1,13 @@
+## Requirements
+  - virt-manager
+  - libvirt-daemon
+  - ovmf
+  - xorriso
 
-support uefi kvm guest
-sudo apt install virt-manager libvirt-daemon ovmf
+###  Запускать скрипты нужно из scripts/
+
+
+  скрипт `unpack_iso.sh` выкачивает оригинальный дистрибутив и распаковывает его.
+  скрипт `repack_iso.sh` "патчит" оригинальный дистрибутив файлами для автоустановки и запаковывает его в iso.
+  скрипты `create_vm.sh` \ `destroy_vm.sh` создают kvm based виртуалки для тестирования автоустановки.
+  Для успешного запуска на вход им необходимо подавать произвольное имя виртуальной машины.
